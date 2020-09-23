@@ -1,7 +1,8 @@
 import React from 'react';
-import StateChart from '../chart/stateChart';
+// import StateDropdown from './dropdown';
 // import './Current.css';
 import axios from "axios";
+import StateChart from '../chart/stateChart';
 
 export default class StateData extends React.Component {
   date = new Date().getDate() - 1;
@@ -46,37 +47,36 @@ export default class StateData extends React.Component {
     ));
     return (
       <>
-        <div className="row">
-          <form onSubmit={this.handleSubmit} className="dropdownOptionForm">
-            <label>
-              <select value={this.state.value} onChange={this.handleChange}>
-                <option value="">Select a state</option>
-                {stateOptions}
-              </select>
-              <input
-                type="submit"
-                value="Click to view data"
-                className="stateSubmitBtn"
-              ></input>
-            </label>
-          </form>
+      <div className="row">
+        <form onSubmit={this.handleSubmit} className="dropdownOptionForm">
+          <label>
+            <select value={this.state.value} onChange={this.handleChange}>
+              <option value="">Select a state</option>
+              {stateOptions}
+            </select>
+            <input
+              type="submit"
+              value="Click to view data"
+              className="stateSubmitBtn"
+            ></input>
+          </label>
+        </form>
         </div>
         <div className="row">
-
-          <div className="col-4">
-            <div id="stateData">
-              <h5 className="dataTitle">{this.state.data.state} Data</h5>
-              <p>Total Tests: {this.state.data.totalTestResults}</p>
-              <p>Positive Cases: {this.state.data.positive}</p>
-              <p>Negative Tests: {this.state.data.negative}</p>
-              <p>Currently Hospitalized: {this.state.data.hospitalizedCurrently}</p>
-              <p>Deaths: {this.state.data.death}</p>
-            </div>
-            <p className="disclosure">Disclosure: All data is sourced from The COVID Tracking Project and is up-to-date as of {this.month}/{this.date}/{this.year}. Please note that not all testing is reported and numbers may slightly vary from CDC data. </p>
+        <div className="col-4">
+          <div id="stateData">
+            <h5 className="dataTitle">{this.state.data.state} Data</h5>
+            <p>Total Tests: {this.state.data.totalTestResults}</p>
+            <p>Positive Cases: {this.state.data.positive}</p>
+            <p>Negative Tests: {this.state.data.negative}</p>
+            <p>Currently Hospitalized: {this.state.data.hospitalizedCurrently}</p>
+            <p>Deaths: {this.state.data.death}</p>
           </div>
-          <div className="col-8">
-      <StateChart />
-          </div>
+          <p className="disclosure">Disclosure: All data is sourced from The COVID Tracking Project and is up-to-date as of {this.month}/{this.date}/{this.year}. Please note that not all testing is reported and numbers may slightly vary from CDC data. </p>
+        </div>
+        <div className="col-8">
+          <StateChart />
+        </div>
         </div>
       </>
     )

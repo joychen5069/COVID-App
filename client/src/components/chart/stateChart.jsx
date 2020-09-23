@@ -2,7 +2,6 @@ import React from'react';
 import { Component } from 'react'
 import CanvasJSReact from'./canvasChart/canvasjs.react';
 import axios from 'axios';
-import StateData from '../currentData/stateData';
 
 let CanvasJS = CanvasJSReact.CanvasJS;
 let CanvasJSChart = CanvasJSReact.CanvasJSChart;
@@ -21,7 +20,7 @@ export default class StateChart extends Component {
 			for (let i = 41; i < res.data.length; i++) {
 				dataPoints.push({
 					x: new Date(res.data[i].submission_date),
-					y: parseInt(res.data[i].tot_cases)
+					y: parseInt(res.data[i].new_case)
                 });
                
             }
@@ -42,7 +41,7 @@ export default class StateChart extends Component {
 			},
 			data: [{
 				type: "line",
-				xValueFormatString: "MMM YYYY",
+				xValueFormatString: "MMMM DD YYYY",
 				yValueFormatString: "",
 				dataPoints: dataPoints
 			}]
