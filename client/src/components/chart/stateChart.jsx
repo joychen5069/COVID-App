@@ -33,7 +33,7 @@ export default class StateChart extends Component {
 		const options = {
 			theme: "dark2",
 			title: {
-				text: stateSelected+ " Case Count"
+				text: stateSelected+ " Case Trend"
 			},
 			axisY: {
 				title: "Cases",

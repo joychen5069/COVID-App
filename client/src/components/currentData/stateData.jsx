@@ -67,7 +67,7 @@ export default class StateData extends React.Component {
           <div id="stateData">
             <h5 className="dataTitle">{this.state.data.state} Data</h5>
             <p>Total Tests: {this.state.data.totalTestResults}</p>
-            <p>Positive Cases: {this.state.data.positive}</p>
+            <p>Positive Tests: {this.state.data.positive}</p>
             <p>Negative Tests: {this.state.data.negative}</p>
             <p>Currently Hospitalized: {this.state.data.hospitalizedCurrently}</p>
             <p>Deaths: {this.state.data.death}</p>
