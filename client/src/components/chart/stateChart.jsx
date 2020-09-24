@@ -1,6 +1,7 @@
 import React from'react';
 import { Component } from 'react'
 import CanvasJSReact from'./canvasChart/canvasjs.react';
+import StateData from '../currentData/stateData'
 import axios from 'axios';
 
 let CanvasJS = CanvasJSReact.CanvasJS;
@@ -47,12 +48,17 @@ export default class StateChart extends Component {
 			}]
 		}
 		return (
+			<>
+			<div>
+				<StateData state={this.stateSelected} />
+			</div>
 		<div>
-			<CanvasJSChart options = {options} 
+			<CanvasJSChart options = {options}
 				 onRef={ref => this.chart = ref}
 			/>
 			{/*You can get reference to the chart instance as shown above using onRef. This allows you to access all chart properties and methods*/}
 		</div>
+		</>
 		);
 	}
 	
