@@ -49,9 +49,7 @@ export default class StateChart extends Component {
 		}
 		return (
 			<>
-			<div>
-				<StateData state={this.stateSelected} />
-			</div>
+		
 		<div>
 			<CanvasJSChart options = {options}
 				 onRef={ref => this.chart = ref}
