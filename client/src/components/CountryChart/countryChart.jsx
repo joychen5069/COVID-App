@@ -15,11 +15,12 @@ export default class StateChart extends Component {
 		let chart = this.chart;
 		axios.get('https://api.covidtracking.com/v1/us/daily.json')
 		.then(function(res) {
-            console.log(res.data)
-           
 			for (let i = 0; i < res.data.length; i++) {
+				let dateStr = (res.data[i].date).toString();
+				let formattedDate = dateStr.slice(0, 4) + "," + dateStr.slice(4, 6) + "," + dateStr.slice(6, 8);
+				console.log(formattedDate)
 				dataPoints.push({
-					x: parseInt(res.data[i].date),
+					x: new Date(formattedDate),
 					y: parseInt(res.data[i].positive)
                 });
                
@@ -41,7 +42,7 @@ export default class StateChart extends Component {
 			},
 			data: [{
 				type: "line",
-				xValueFormatString: "MMMM DD YYYY",
+				xValueFormatString: "YYYY MM DD",
 				yValueFormatString: "",
 				dataPoints: dataPoints
 			}]
