@@ -3,7 +3,7 @@ import Header from "../components/header/Header";
 import Footer from "../components/footer/Footer";
 import "./Pages.css";
 import Navbar from "../components/navigation/Navbar";
-import StateSearch from "../components/members/StateSearch";
+import CountryChart from "../components/CountryChart/countryChart"
 import CurrentData from "../components/currentData/Current"
 
 const Members = (props) => {
@@ -22,7 +22,7 @@ const Members = (props) => {
             <CurrentData />
             </div>
             <div className="col-sm-12 col-md-8">
-              <StateSearch />
+              <CountryChart />
             </div>
           </div>
         </div>
