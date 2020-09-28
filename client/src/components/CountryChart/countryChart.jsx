@@ -15,10 +15,10 @@ export default class StateChart extends Component {
 		let chart = this.chart;
 		axios.get('https://api.covidtracking.com/v1/us/daily.json')
 		.then(function(res) {
-			for (let i = 0; i < res.data.length; i++) {
+			console.log(res)
+			for (let i = 0; i < res.data.length-35; i++) {
 				let dateStr = (res.data[i].date).toString();
 				let formattedDate = dateStr.slice(0, 4) + "," + dateStr.slice(4, 6) + "," + dateStr.slice(6, 8);
-				console.log(formattedDate)
 				dataPoints.push({
 					x: new Date(formattedDate),
 					y: parseInt(res.data[i].positive)
@@ -37,7 +37,7 @@ export default class StateChart extends Component {
 				text: "US Case Trend"
 			},
 			axisY: {
-				title: "Cases",
+				title: "Total Cases",
 				prefix: ""
 			},
 			data: [{
