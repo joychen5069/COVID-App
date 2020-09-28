@@ -95,7 +95,7 @@ function App() {
           <BrowserRouter>
             <Route exact path="/" component={() => <Home signUpUser={signUpUser} login={login} />} />
             <Route exact path="/news" component={() => <Home signUpUser={signUpUser} login={login} />} />
-            <Route exact path="/members" component={() => <Home signUpUser={signUpUser} login={login} />} />
+            <Route exact path="/members" component={() => <Members logout={logout} />} />
             <Route exact path="/hospitals" component={() => <Home signUpUser={signUpUser} login={login} />} />
             <Route exact path="/chart" component={() => <Chart logout={logout}/>} />
           </BrowserRouter>

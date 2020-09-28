@@ -1,6 +1,4 @@
 import React from 'react';
-// import StateDropdown from './dropdown';
-// import './Current.css';
 import axios from "axios";
 import StateChart from '../chart/stateChart';
 
@@ -30,8 +28,7 @@ export default class StateData extends React.Component {
   async getState(value) {
     // let stateSelected = this.value;
     let res = await axios.get("https://api.covidtracking.com/v1/states/" + value + "/current.json");
-
-    console.log(res.data)
+    // console.log(res.data)
     this.setState({
       data: res.data,
       value: res.data.state
@@ -75,7 +72,7 @@ export default class StateData extends React.Component {
           <p className="disclosure">Disclosure: All data is sourced from The COVID Tracking Project and is up-to-date as of {this.month}/{this.date}/{this.year}. Please note that not all testing is reported and numbers may slightly vary from CDC data. </p>
         </div>
         <div className="col-8">
-          <StateChart />
+          <StateChart state={this.state}/>
         </div>
         </div>
       </>
